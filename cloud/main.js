@@ -16,8 +16,7 @@ function getAdType(domobYjfRatio) {
   } else {
     adType = 2;
   }
-  return adType;
-
+  return 0;
 }
 
 AV.Cloud.define("getInterstitialAdType", function(request, response) {
