@@ -4,30 +4,38 @@ AV.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
 
-function getRand() {
-  return Math.floor((Math.random()*100)+1);
+//return number in [start,end)
+function getRand(start, end) {
+  return Math.floor((Math.random()*(end-start)+start));
 }
 
-function getAdType(domobYjfRatio) {
-  var rand = getRand();
-  var adType = 1;
-  if(rand < domobYjfRatio) {
-    adType = 1;
-  } else {
-    adType = 2;
+//0 null
+//1 domob
+//2 yjf
+//3 baidu
+//4 adwo
+//5 guomob
+//6 admob
+function getAdType(ratioConfig) {
+  var rand = getRand(0,100);
+  for(var i = 0; i < ratioConfig.length; ++i) {
+    if(rand < ratioConfig[i][1]) {
+      return ratioConfig[i][0];
+    }
   }
-  return adType;
+  return 0;
 }
+
+var intlRatioConfig = [[2,20],[3,40],[4,60],[5,80],[6,100]];
+var wallRatioConfig = [[1,50],[2,100]];
 
 AV.Cloud.define("getInterstitialAdType", function(request, response) {
-  var DOMOB_YJF_RATIO = 101;
-  var adType = getAdType(DOMOB_YJF_RATIO);
+  var adType = getAdType(intlRatioConfig);
   response.success(adType);
 });
 
 AV.Cloud.define("getWallAdType", function(request, response) {
-  var DOMOB_YJF_RATIO = 101;
-  var adType = getAdType(DOMOB_YJF_RATIO);
+  var adType = getAdType(wallRatioConfig);
   response.success(adType);
 });
 
