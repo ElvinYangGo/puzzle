@@ -26,7 +26,7 @@ function getAdType(ratioConfig) {
   return 0;
 }
 
-var intlRatioConfig = [[2,20],[3,40],[4,60],[5,80],[6,100]];
+var intlRatioConfig = [[2,25],[3,50],[4,75],[5,100],[6,0]];
 var wallRatioConfig = [[1,50],[2,100]];
 
 AV.Cloud.define("getInterstitialAdType", function(request, response) {
