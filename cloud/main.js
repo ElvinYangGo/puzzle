@@ -35,7 +35,13 @@ AV.Cloud.define("getInterstitialAdType", function(request, response) {
 });
 
 AV.Cloud.define("getWallAdType", function(request, response) {
-  var adType = getAdType(wallRatioConfig);
-  response.success(adType);
+  var date = new Date();
+  if(date.getDate()%2 ==0) {
+    response.success(1);
+  } else {
+    response.success(2);
+  }
+  //var adType = getAdType(wallRatioConfig);
+  //response.success(adType);
 });
 
