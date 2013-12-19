@@ -26,8 +26,8 @@ function getAdType(ratioConfig) {
   return 0;
 }
 
-var intlRatioConfig = [[2,25],[3,50],[4,75],[5,100],[6,0]];
-var wallRatioConfig = [[1,50],[2,100]];
+var intlRatioConfig = [[2,33],[3,66],[4,100],[5,0],[6,0]];
+var wallRatioConfig = [[1,100],[2,0]];
 
 AV.Cloud.define("getInterstitialAdType", function(request, response) {
   var adType = getAdType(intlRatioConfig);
@@ -35,12 +35,13 @@ AV.Cloud.define("getInterstitialAdType", function(request, response) {
 });
 
 AV.Cloud.define("getWallAdType", function(request, response) {
-  var date = new Date();
-  if(date.getDate()%2 ==0) {
-    response.success(1);
-  } else {
-    response.success(2);
-  }
+  return 1;
+  //var date = new Date();
+  //if(date.getDate()%2 ==0) {
+  //  response.success(1);
+  //} else {
+  //  response.success(2);
+  //}
   //var adType = getAdType(wallRatioConfig);
   //response.success(adType);
 });
