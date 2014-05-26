@@ -47,8 +47,8 @@ AV.Cloud.define("getWallAdType", function(request, response) {
   //response.success(adType);
 });
 
-var androidIntlRatioConfig = [[4,50],[7,50]];
-var androidWallRatioConfig = [[1,50],[2,50]];
+var androidIntlRatioConfig = [[4,50],[7,100]];
+var androidWallRatioConfig = [[1,50],[2,100]];
 
 AV.Cloud.define("getAndroidInterstitialAdType", function(request, response) {
   var adType = getAdType(androidIntlRatioConfig);
