@@ -59,4 +59,4 @@ AV.Cloud.define("getAndroidInterstitialAdType", function(request, response) {
 AV.Cloud.define("getAndroidWallAdType", function(request, response) {
   var adType = getAdType(androidWallRatioConfig);
   response.success(adType);
-}
+});
