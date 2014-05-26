@@ -16,6 +16,7 @@ function getRand(start, end) {
 //4 adwo
 //5 guomob
 //6 admob
+//7 wdj
 function getAdType(ratioConfig) {
   var rand = getRand(0,100);
   for(var i = 0; i < ratioConfig.length; ++i) {
@@ -46,3 +47,16 @@ AV.Cloud.define("getWallAdType", function(request, response) {
   //response.success(adType);
 });
 
+var androidIntlRatioConfig = [[4,50],[7,50]];
+var androidWallRatioConfig = [[1,50],[2,50]];
+
+AV.Cloud.define("getAndroidInterstitialAdType", function(request, response) {
+  var adType = getAdType(androidIntlRatioConfig);
+  response.success(adType);
+});
+
+
+AV.Cloud.define("getAndroidWallAdType", function(request, response) {
+  var adType = getAdType(androidWallRatioConfig);
+  response.success(adType);
+}
